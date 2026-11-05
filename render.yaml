@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ci-cd-pipeline-demo
+    runtime: python
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi
+    healthCheckPath: /health
+    autoDeployTrigger: 'off'
+    envVars:
+      - key: APP_ENV
+        value: production

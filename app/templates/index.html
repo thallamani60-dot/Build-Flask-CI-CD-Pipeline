@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101827">
+    <meta name="description" content="A beginner-friendly demonstration of a secure CI/CD pipeline built with Flask, GitHub Actions, and Render.">
+    <title>Ship with Confidence | CI/CD Pipeline Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Ship with Confidence home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>Ship<span class="brand-light">/</span>with<span class="brand-light">/</span>confidence</span>
+      </a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#workflow">Pipeline</a>
+        <a href="#objectives">Objectives</a>
+        <a class="nav-github" href="https://github.com/" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero page-wrap" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> COLLEGE PROJECT <span class="eyebrow-divider">/</span> DEVOPS FUNDAMENTALS</p>
+          <h1>From a code<br>change to <span>go-live.</span></h1>
+          <p class="hero-intro">A practical, secure CI/CD pipeline that checks every change, builds a release, and deploys to Render only after the gates pass.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#workflow">Explore the pipeline <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#objectives">See project objectives <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-footnote"><span class="mono-chip">PYTHON 3.12</span><span class="mono-chip">FLASK</span><span class="mono-chip">GITHUB ACTIONS</span></div>
+        </div>
+        <div class="hero-art" aria-label="Four pipeline stages: lint, test, build, and deploy">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="orbit-center"><span class="orbit-glyph">↗</span><span>SHIP<br>SAFELY</span></div>
+          <span class="orbit-label orbit-label-one">01 / LINT</span>
+          <span class="orbit-label orbit-label-two">02 / TEST</span>
+          <span class="orbit-label orbit-label-three">03 / BUILD</span>
+          <span class="orbit-label orbit-label-four">04 / DEPLOY</span>
+          <span class="orbit-spark spark-one">✳</span>
+          <span class="orbit-spark spark-two">·</span>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="Application status">
+        <div class="page-wrap status-inner">
+          <div class="status-label"><span class="pulse-dot" id="status-dot"></span><span id="status-label" aria-live="polite">Checking application…</span></div>
+          <div class="status-meta"><span>ENVIRONMENT</span><strong id="environment-value">—</strong></div>
+          <div class="status-meta"><span>VERSION</span><strong id="version-value">—</strong></div>
+          <div class="status-meta"><span>COMMIT</span><strong class="commit-value" id="commit-value">—</strong></div>
+          <a class="status-api" href="/api/status">API status <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="workflow-section page-wrap" id="workflow">
+        <div class="section-heading">
+          <div><p class="eyebrow">THE DELIVERY LOOP</p><h2>Every change earns<br>its way to production.</h2></div>
+          <p class="section-aside">Four jobs. One clear path.<br>Each stage must succeed before the next begins.</p>
+        </div>
+        <div class="pipeline" aria-label="Pipeline stages in order">
+          <article class="pipeline-card">
+            <div class="card-top"><span class="step-no">01</span><span class="step-icon" aria-hidden="true">⌁</span></div>
+            <p class="stage-name">LINT</p><h3>Keep it clean.</h3>
+            <p>Flake8 catches style issues early so the code stays readable and consistent.</p>
+            <div class="stage-footer"><span class="stage-indicator"></span> FLAKE8 <span class="stage-time">QUALITY</span></div>
+          </article>
+          <span class="pipeline-arrow" aria-hidden="true">→</span>
+          <article class="pipeline-card">
+            <div class="card-top"><span class="step-no">02</span><span class="step-icon" aria-hidden="true">✓</span></div>
+            <p class="stage-name">TEST</p><h3>Prove it works.</h3>
+            <p>Pytest checks the homepage and both status endpoints on every change.</p>
+            <div class="stage-footer"><span class="stage-indicator"></span> PYTEST <span class="stage-time">CONFIDENCE</span></div>
+          </article>
+          <span class="pipeline-arrow" aria-hidden="true">→</span>
+          <article class="pipeline-card">
+            <div class="card-top"><span class="step-no">03</span><span class="step-icon" aria-hidden="true">▦</span></div>
+            <p class="stage-name">BUILD</p><h3>Package the app.</h3>
+            <p>Python builds a wheel and source archive ready to share or install.</p>
+            <div class="stage-footer"><span class="stage-indicator"></span> PYTHON BUILD <span class="stage-time">ARTIFACT</span></div>
+          </article>
+          <span class="pipeline-arrow" aria-hidden="true">→</span>
+          <article class="pipeline-card pipeline-card-deploy">
+            <div class="card-top"><span class="step-no">04</span><span class="step-icon" aria-hidden="true">↗</span></div>
+            <p class="stage-name">DEPLOY</p><h3>Release with care.</h3>
+            <p>Only a push to <code>main</code> that clears every gate calls Render.</p>
+            <div class="stage-footer"><span class="stage-indicator"></span> RENDER <span class="stage-time">PRODUCTION</span></div>
+          </article>
+        </div>
+        <div class="workflow-note"><span class="lock-icon" aria-hidden="true">▣</span><p><strong>Secrets stay secret.</strong> The Render Deploy Hook URL lives in GitHub Repository Secrets and enters only the deploy job environment.</p><a href="#secrets">How secrets work <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section class="objectives-section" id="objectives">
+        <div class="page-wrap objectives-layout">
+          <div><p class="eyebrow">WHY THIS PROJECT</p><h2>Good releases<br>start with good habits.</h2><p class="objectives-intro">This project turns the ideas behind DevOps into a working, understandable example you can run, inspect, and extend.</p></div>
+          <div class="objective-list">
+            <article class="objective-item"><span>01</span><div><h3>Automate the routine.</h3><p>Run the same lint, tests, and package build for every change.</p></div><span class="objective-mark">↗</span></article>
+            <article class="objective-item"><span>02</span><div><h3>Protect production.</h3><p>Require every validation job to pass before the deploy job can run.</p></div><span class="objective-mark">↗</span></article>
+            <article class="objective-item" id="secrets"><span>03</span><div><h3>Handle credentials safely.</h3><p>Keep deployment credentials out of source files and workflow output.</p></div><span class="objective-mark">↗</span></article>
+            <article class="objective-item"><span>04</span><div><h3>Make health visible.</h3><p>Expose simple health and status endpoints for the service and its users.</p></div><span class="objective-mark">↗</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing page-wrap">
+        <div><p class="eyebrow">A SMALL PROJECT WITH REAL PRACTICES</p><h2>Build. Check. Ship.<br><span>Repeat.</span></h2></div>
+        <div class="closing-side"><p>Explore the source, follow the workflow run, and verify the live health check after deployment.</p><a class="button button-dark" href="/health">Check application health <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer page-wrap"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">S</span><span>Ship<span class="brand-light">/</span>with<span class="brand-light">/</span>confidence</span></a><p>CI/CD Pipeline — Continuous Deployment &amp; Secrets Management</p><a href="/api/status">API <span aria-hidden="true">↗</span></a></footer>
+  </body>
+</html>
